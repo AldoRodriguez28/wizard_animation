@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../style.css">
+
+
+    <link rel="stylesheet" href="../../dist/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="../../@bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../dist/sweet_alert/cdn.jsdelivr.net_npm_sweetalert2@11.7.31_dist_sweetalert2.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../dist/sweet_alert/cdn.jsdelivr.net_npm_sweetalert2@11.7.31_dist_sweetalert2.all.min.js"></script>
+
+    <title>Wizard | Sinergia-operador</title>
+</head>
+<body>
+    <div class=" container operador_view ">
+        <!-- seccion contacto -->
+        <div class="header contacto operador">
+            <i class="fa fa-user"></i>
+            <h2>Datos del Contacto:</h2>
+            <p class="section_description">
+                En esta sección solicitamos nos proporcione los datos de la persona con la que estaremos en contacto 
+            </p>
+
+        </div>
+        <div class="container_body_content">
+            <div class="row">
+                <div class="col-lg-5 col-md-11 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Nombre de contacto" attr="name" id='name' required="true" />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('name')"><i class="fa fa-copy"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-11 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Email" attr="email" id='email' required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('email')"><i class="fa fa-copy"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-11 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Numero de telefono" attr="telefono" id='telefono' required="true" />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('telefono')"><i class="fa fa-copy"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-11 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Numero de celular" attr="celular" id='celular' required="true" />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('celular')"><i class="fa fa-copy"></i></button>
+                </div>
+            </div>
+            <hr >
+
+            <!-- seccion negocio  -->
+            <div class="header negocio operador">
+                <i class="fa fa-briefcase"></i>
+                <h2>Datos del Negocio:</h2>
+                <p class="section_description">
+                    En esta sección solicitamos nos proporcione los datos del negocio.
+                </p>
+                
+            </div>
+            <div class="row">
+
+                <div class="col-lg-11 col-md-11 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Nombre comercial" attr="nombre_negocio" id='nombre_negocio' required />                
+                    <div class="alert alert-warning ai_field" role="alert">
+                       !Esta información se ocupara para generar contenido con <code>Inteligencia Artificial</code> ¡
+                    </div>      
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('nombre_negocio')"><i class="fa fa-copy"></i></button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12">
+                    <select id="pais" attr="pais" class="form-select form-select-lg mb-3" aria-label=".form-select-" data-live-search="true">
+                        <option selected value="">Pais</option>
+                        <option value="+52">🇲🇽 +52</option>
+                        <option value="+1">🇺🇸 +1</option>
+                    </select>                             
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Teléfono local (10 digitos)" attr="telefono_publicar" id='telefono_publicar' maxlength="14" required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('telefono_publicar')"><i class="fa fa-copy"></i></button>
+                </div>
+                
+                <div class="col-lg-11 col-md-11 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Celular ( 10 digitos )" attr="negocio_celular" id='negocio_celular' maxlength="13" required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('negocio_celular')"><i class="fa fa-copy"></i></button>
+                </div>
+                
+            </div>
+            <div class="row">
+                
+                <div class="col-lg-11 col-md-11 col-sm-11">
+                    <input type="input" class="input_wizard" placeholder="Correo electrónico" attr="negocio_email" id='negocio_email' required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('negocio_email')"><i class="fa fa-copy"></i></button>
+                </div>
+                
+            </div>
+            <hr class="hr" />
+
+
+           
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-11">
+                    <div class="container_ubicacion">
+                        <div class="ubicacionBody">
+                            <div class="row">
+                                <div class="col-lg-10 col-md-10 col-sm-10">
+                                    <input type="input" class="input_wizard" placeholder="Dirección" attr="direccion" id='direccion' required />                
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 direccion_button_copy_container">
+                                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('direccion')"><i class="fa fa-copy"></i></button>
+                                </div>
+                            </div>
+
+                            </div>
+                            <div class="col12">
+                                <div class="cards_container">
+                                    <div class="latitud">
+                                        <p class="title_location">Latitud: </p>
+                                        <span class="dataLatitud">19.05960</span>
+                                    </div>
+                                    <div class="longitud">
+                                        <p class="title_location">Longitud: </p>
+                                        <span class="dataLatitud">19.05960</span>
+                                    </div>
+                                </div>
+                            </div>
+                       
+
+                        <div class="col-lg-11 col-md-11 col-sm-11">
+                            <p class="sub-title">Categoria de tu empresa:</p>
+                            <select id="categoria" attr="categoria" class="form-select form-select-lg mb-3" aria-label=".form-select-" data-live-search="true">
+                                <option selected value="">Ingresa la categoria que describe mejor tu empresa</option>
+                                <option value="Abarrotes">Abarrotes</option>
+                                <option value="Abogados">Abogados</option>
+                                <option value="Abrasivos">Abrasivos</option>
+                            </select> 
+                            <div class="alert alert-warning ai_field" role="alert">
+                                !Esta información se ocupara para generar contenido con <code>Inteligencia Artificial</code> ¡
+                             </div>                     
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            <button type="button" class="btn btn-primary" onclick="copyToClipBoard('categoria')"><i class="fa fa-copy"></i></button>
+                        </div>
+                    </div> 
+                    
+                </div>
+                
+                
+                <div class="col-lg-7 col-md-7 col-sm-12">
+                    <div class="mapouter">
+                        <div class="gmap_canvas"><iframe
+                                src="https://maps.google.com/maps?q=cdmx&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                                id="gmap_canvas" frameborder="0" scrolling="no" style="width: 600px; height: 400px;"></iframe>
+                            <style>
+                                
+                            </style>
+                            <style>
+                                
+                            </style><a href="https://www.eireportingonline.com">ei reporting</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- seccion negocio 2.0  -->
+           
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="image_logo_previe_coontainer">
+                        <label for="img_logo">Previo de logo</label>
+                        <div class="container_images"> 
+                            <img id="img_logo" src="" alt="logo_seleccionado" >    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-11 col-sm-11">
+                    <label >Logo</label>
+                    <div class="container_file" >
+                        <label class="btn btn-primary btn-sm styleButton" for="fileUpload">Seleccionar archivo</label>
+                        <input id="fileUpload" attr="fileUpload" class="file-input" type="file" accept="image/png,image/jpeg">
+                        </div>
+                </div>
+             
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <table class="table">
+                        <thead class="table-light">
+                            <tr>
+                                <th>
+                                Archivos
+                                </th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>No se ha seleccionado ninguno</td> 
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+            <hr class="hr" />
+            <div class="row">
+                <div class="col-lg-11 col-md-11 col-sm-11">
+                    <p class="sub-title">Describe tus productos o servicios como lo harías con tus clientes.</p>
+                    <textarea class="form-control" placeholder="*Menciona todos los productos y/o servicios que ofreces en forma de lista " id="listaServicios" attr="listaServicios" rows="3"></textarea>
+                    <div class="alert alert-warning ai_field" role="alert">
+                        !Esta información se ocupara para generar contenido con <code>Inteligencia Artificial</code> ¡
+                     </div>  
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('listaServicios')"><i class="fa fa-copy"></i></button>
+                </div>
+            </div>
+            <hr class="hr" />
+            <div class="row">
+                <p class="sub-title">Servicios que ofreces</p>
+                <div class="serviceContainer">
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="entrega-domicilio" autocomplete="off">
+                        <label class="btn btn-outline-success" for="entrega-domicilio">Entrega a domicilio</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="entrega-sin-contacto" autocomplete="off">
+                        <label class="btn btn-outline-success" for="entrega-sin-contacto">Entrega sin contacto</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="paraLlevar" autocomplete="off">
+                        <label class="btn btn-outline-success" for="paraLlevar">Para llevar</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="consumoLugar" autocomplete="off">
+                        <label class="btn btn-outline-success" for="consumoLugar">Consumo en el lugar</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="terrazaMesaAireLibre" autocomplete="off">
+                        <label class="btn btn-outline-success" for="terrazaMesaAireLibre">Terraza o mesas al aire libre</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="reservaOnline" autocomplete="off">
+                        <label class="btn btn-outline-success" for="reservaOnline">Reservas online</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="reservas" autocomplete="off">
+                        <label class="btn btn-outline-success" for="reservas">Reservas</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="retiroEnCoche" autocomplete="off">
+                        <label class="btn btn-outline-success" for="retiroEnCoche">Retiro desde el coche</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="retiroEnNegocio" autocomplete="off">
+                        <label class="btn btn-outline-success" for="retiroEnNegocio">Retiro en el negocio</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="comprasEnLinea" autocomplete="off">
+                        <label class="btn btn-outline-success" for="comprasEnLinea">Compras en linea</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="entregaSinContacto" autocomplete="off">
+                        <label class="btn btn-outline-success" for="entregaSinContacto">Entrega sin contacto</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="clasesPresenciales" autocomplete="off">
+                        <label class="btn btn-outline-success" for="clasesPresenciales">Clases presenciales</label>
+                    </div>
+                    <div class="check_service">
+                        <input type="checkbox" class="btn-check" id="clasesOnline" autocomplete="off">
+                        <label class="btn btn-outline-success" for="clasesOnline">Clases online</label>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr" />
+            <div class="row d-flex align-items-center">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="switch_oferta">
+                                <div class="form-check form-switch">
+                                    <label class="form-check-label" for="offercheckbox">¿Ofreces alguna promoción?</label>
+                                    <input class="form-check-input" type="checkbox" onchange="testOffer()" id="offercheckbox">
+                                </div>
+                            </div>
+                            
+                        </div>
+                            <div id="container_cual" class="col-lg-7 col-md-7 col-sm-11 ">
+    
+                                <textarea id="cual" attr="cual"class="form-control" placeholder="Describe las promociones con las que cuentas" rows="6"></textarea>
+                            </div>
+                            
+                            <div id="copy_cual" class="col-lg-1 col-md-1 col-sm-1 nodisplay">
+                                <button type="button" class="btn btn-primary" onclick="copyToClipBoard('cual')"><i class="fa fa-copy"></i></button>
+                            </div>
+            </div>
+            <hr class="hr" />
+
+            <div class="row">
+                <div class="col-lg-11 col-md-11 col-sm-11">
+                    
+                    <input type="input" class="input_wizard" placeholder="¿ Años de experiencia ?" attr="experiencia" id='experiencia' />                
+                    <div class="alert alert-warning ai_field" role="alert">
+                        !Esta información se ocupara para generar contenido con <code>Inteligencia Artificial</code> ¡
+                     </div> 
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('experiencia')"><i class="fa fa-copy"></i></button>
+                </div>
+
+            </div>
+            <hr class="hr" />
+            <div class="row">
+                <div class="col-lg-11 col-md-11 col-sm-11">
+                    <p class="sub-title">¿ A quien esta dirigido tu producto servicio ?</p>
+                   
+                    <textarea class="form-control" placeholder="Son los clientes potenciales que visitaran tu web. &#10 Ej. personas con problemas de auto como frenos, aceite, etc. &#10 Ej. niños entre 5 y 12 años para tratamiento de ortodoncia." id="a_quien_dirigido" attr="a_quien_dirigido" rows="6"></textarea>
+                    <div class="alert alert-warning ai_field" role="alert">
+                        !Esta información se ocupara para generar contenido con <code>Inteligencia Artificial</code> ¡
+                     </div>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('a_quien_dirigido')"><i class="fa fa-copy"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <p class="sub-title">Cobertura:</p>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10">
+                        <select id="cobertura" attr="cobertura" onchange="testCobertura(this.value)" class="form-select form-select-lg mb-3" aria-label=".form-select-" data-live-search="true">
+                            <option selected value="">Cobertura</option>
+                            <option value="Nacional">Nacional</option>
+                            <option value="Estatal">Estatal</option>
+                            <option value="Local">Local</option>
+                        </select>  
+                                        
+                    </div> 
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" onclick="copyToClipBoard('cobertura')"><i class="fa fa-copy"></i></button>
+                    </div>
+                    <div id="container_donde_servicio" class="col-lg-6 col-md-6 col-sm-11 nodisplay">
+                        <div class="row">
+                            <div class="col-lg-10 col-md-10 col-sm-11">
+                                <input type="input" class="input_wizard" placeholder="Ciudad" attr="donde_servicio" id='donde_servicio' />                
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                <button type="button" class="btn btn-primary" onclick="copyToClipBoard('donde_servicio')"><i class="fa fa-copy"></i></button>
+                            </div>
+
+                        </div>
+                        
+                    </div> 
+
+                </div>
+                
+            </div>
+            <hr class="hr" />
+
+            <!-- seccion negocio 3.0 -->
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                        <p class="sub-title">Horario de atencion:</p>
+                            <div class="switch_24hrs">
+                                <div class="form-check form-switch">
+                                    <label class="form-check-label" for="offercheckbox">24 horas</label>
+                                    <input id="24hrs" class="form-check-input" type="checkbox" onchange="test24Hrs()" id="offercheckbox">
+                                </div>
+                            </div>
+                            
+                </div>
+            </div>
+            <div class="row">
+                <!-- L U N E S -->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="dia"></div>
+                            <p>Lunes :</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <input type="time"  class="timeOclock apertura" id="appt" attr="appt" min="09:00" max="18:00" required />
+                            
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            &#8212;
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <input type="time"  class="timeOclock cierre" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                    </div>
+                </div>
+                <!-- L U N E S -->
+                <hr class="hr" style="border:0px">
+
+                <!-- M A R T E S -->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="dia"></div>
+                            <p>Martes :</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock apertura" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            &#8212;
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock cierre" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                    </div>
+                </div>
+                <!-- M A R T E S -->
+                <hr class="hr" style="border:0px">
+
+                <!-- M I E R C O L E S -->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="dia"></div>
+                            <p>Miercoles :</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock apertura" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            &#8212;
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock cierre" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                    </div>
+                </div>
+                    <!-- M I E R C O L E S -->x 
+                    <hr class="hr" style="border:0px">
+
+                    <!-- J U E V E S -->
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="dia"></div>
+                            <p>Jueves :</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock apertura" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            &#8212;
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock cierre" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                    </div>
+                </div>
+                <!-- J U E V E S -->
+                <hr class="hr" style="border:0px">
+
+                <!-- V I E R N E S -->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="dia"></div>
+                            <p>Viernes :</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock apertura" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            &#8212;
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock cierre" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                    </div>
+                </div>
+                <hr class="hr" style="border:0px">
+
+                <!--    S A B A D O -->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="dia"></div>
+                            <p>Sabado :</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock apertura" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            &#8212;
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock cierre" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                    </div>
+                </div>
+                <!--    S A B A D O -->
+                <hr class="hr" style="border:0px">
+
+                <!--    D O M I N G O -->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="dia"></div>
+                            <p>Domingo :</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock apertura" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            &#8212;
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <input type="time"  class="timeOclock cierre" id="appt" attr="appt" min="09:00" max="18:00" required />
+                        </div> 
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <hr class="hr" style="border: 0px;">
+            <div class="row">
+                <p class="sub-title">Metodos de pago</p>
+                <div class="container_formaDePago">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" attr="americanx" id="american" value="american">
+                        <label class="form-check-label" for="american">American</label>
+                    </div>
+    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" attr="deposito" id="deposito" value="deposito">
+                        <label class="form-check-label" for="deposito">Deposito</label>
+                    </div>
+    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" attr="transferencia" id="transferencia" value="transferencia">
+                        <label class="form-check-label" for="transferencia">Transferencia</label>
+                    </div>
+    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" attr="visa" id="visa" value="visa">
+                        <label class="form-check-label" for="visa">Visa</label>
+                    </div>
+    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" attr="cheques" id="cheques" value="cheques">
+                        <label class="form-check-label" for="cheques">Cheques</label>
+                    </div>
+    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" attr="efectivo" id="efectivo" value="efectivo">
+                        <label class="form-check-label" for="efectivo">Efectivo</label>
+                    </div>
+    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" attr="paypal" id="paypal" value="paypal">
+                        <label class="form-check-label" for="paypal">Paypal</label>
+                    </div>
+    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" attr="vales" id="vales" value="vales">
+                        <label class="form-check-label" for="vales">Vales</label>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="hr" style="border: 0px;">
+
+            <!-- Indicador de cuenta verificada google my bussinnes -->
+            <div class="row">
+                <p class="sub-title">Verificar cuenta</p>
+                <br>
+                <div class="alert alert-info" role="alert">
+                    Marcar esta casilla indica que la cuenta está verificada en Google Business Profile y que la información proporcionada es precisa y actualizada.
+                  </div>
+            
+                <div class="form-check verifica-cuenta">
+                    <input class="form-check-input" type="checkbox" value="check_GBP" id="check_GBP" onclick="testUrlGBP()">
+                    <label class="form-check-label" for="check_GBP">
+                        Cuenta verificada (Google Bussines Profile).
+                    </label>
+    
+                </div>
+                <div id="url_gbp" class="col-lg-11 col-md-11 col-sm-11 url_gbp nodisplay">
+                    <div class="row">
+                        <div class="col-lg-11 col-md-11 col-sm-11">
+                            <input type="input" class="input_wizard" placeholder="Url de google bussines profile" attr="url_GBP" id='url_GBP'/>                
+    
+                        </div>
+                       <!-- <div class="col-lg-1 col-md-1 col-sm-1">
+                            <button type="button" class="btn btn-primary" onclick="copyToClipBoard('url_GBP')"><i class="fa fa-copy"></i></button>
+                        </div>-->
+                    </div>
+                </div> 
+              
+                  
+            </div>
+            <!-- Indicador de cuenta verificada google my bussinnes -->
+
+            <hr class="hr" style="border: 0px;">
+
+            <!-- seccion marca-->
+
+            <div class="header marca operador">
+                <i class="fa fa-bullhorn"></i>
+                <h2>Datos del Marca:</h2>
+                <p class="section_description">
+                    Datos de tu fan page
+                </p>
+
+            </div>
+            <!-- FACEBOOK -->
+
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <i class="fa fa-facebook-square facebook"></i>                    </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input type="input" class="input_wizard" placeholder="¿Cual es tu link de Facebook?" attr="link_facebook" id='link_facebook' required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_facebook')"><i class="fa fa-copy"></i></button>
+                </div>
+                
+            </div>
+            <!-- TWITTER -->
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1 twitter">
+                    <img src="../../images/logoTwitter.png"  alt="" width="40" height="40" />                   
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input type="input" class="input_wizard" placeholder="¿Cual es tu link de Twitter?" attr="link_twitter" id='link_facebook' required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_twitter')"><i class="fa fa-copy"></i></button>
+                </div>
+                
+            </div>
+            <!-- INSTAGRAM -->
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <i class="fa fa-instagram instagram"></i>                    </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input type="input" class="input_wizard" placeholder="¿Cual es tu link de Instagram?" attr="link_instagram" id='link_facebook' required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_twitter')"><i class="fa fa-copy"></i></button>
+                </div>
+                
+            </div>
+            <!-- YOUTUBE -->
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <i class="fa fa-youtube youtube"></i> 
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input type="input" class="input_wizard" placeholder="¿Cual es tu link de You-Tube?" attr="link_youtube" id='link_facebook' required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_youtube')"><i class="fa fa-copy"></i></button>
+                </div>
+                
+            </div>
+            <!-- LINKEDIN -->
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <i class="fa fa-linkedin-square linkedin"></i>                    </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <input type="input" class="input_wizard" placeholder="¿Cual es tu link de Linkedin?" attr="link_linkedin" id='link_facebook' required />                
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_linkedin')"><i class="fa fa-copy"></i></button>
+                </div>
+            </div>
+
+            <!-- Inicia Seccion  Marca 2.0 -->
+            <div id="marca_2" class="container_form">
+                <div class="header contacto">
+                    <i class="fa fa-bullhorn"></i>
+                    <h2>Datos del Marca:</h2>
+                    <p class="section_description">
+                        Datos de tu marca
+                    </p>
+
+                </div>
+                <div class="container_body_content">
+                    <!-- FACEBOOK -->
+                <div class="row">
+                    <div class="col-lg-1 col-md-12 colsm-12">
+                        <i class="fa fa-facebook-square facebook"></i>                    </div>
+                    <div class="col-lg-10 col-md-11 colsm-12">
+                        <input type="input" class="input_wizard" placeholder="¿Cual es tu link de Facebook?" attr="link_facebook" id='link_facebook' required />                
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_linkedin')"><i class="fa fa-copy"></i></button>
+                    </div>
+                    
+                </div>
+                <div class="row">                    
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <input type="input" class="input_wizard" placeholder="Correo electrónico" attr="email_facebook" id='email_facebook' required />                
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_linkedin')"><i class="fa fa-copy"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <input type="input" class="input_wizard" placeholder="Nombre de tu perfil de Facebook" attr="nombre_facebook" id='nombre_facebook' required />                
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <button type="button" class="btn btn-primary" onclick="copyToClipBoard('link_linkedin')"><i class="fa fa-copy"></i></button>
+                    </div>
+                    
+                </div>
+                <hr class="hr">
+                <div class="row">
+                    <p class="sub-title">Rango de precios</p>
+                    <div class="form-check check_container">
+                        <input class="form-check-input" type="radio" attr="precio" id="barato">
+                        <div class="container_label_precio">
+                            <label class="form-check-label" for="barato">$</label>
+                            <label for="barato" class="sub_descripcion">Barato</label>
+                        </div>
+                    </div>
+                    <div class="form-check check_container">
+                        <input class="form-check-input" type="radio" attr="precio" id="moderado">
+                        <div class="container_label_precio">
+                            <label class="form-check-label" for="moderado">$$</label>
+                            <label for="moderado" class="sub_descripcion">Moderado</label>
+                        </div>
+                    </div>
+                    <div class="form-check check_container">
+                        <input class="form-check-input" type="radio" attr="precio" id="caro">
+                        <div class="container_label_precio">
+                            <label class="form-check-label" for="caro">$$$</label>
+                            <label for="caro" class="sub_descripcion">Caro</label>
+                        </div>
+                    </div>
+                    <div class="form-check check_container">
+                        <input class="form-check-input" type="radio" placeholder="muy caro" attr="precio" id="muy_caro">
+                        <div class="container_label_precio">
+                            <label class="form-check-label" for="muy_caro">$$$$</label>
+                            <label for="muy_caro" class="sub_descripcion">Muy caro</label>
+                        </div>
+                    </div>
+                    <div class="form-check check_container">
+                        <input class="form-check-input" type="radio" attr="precio" id="sin_especificar">
+                        <div class="container_label_precio">
+                            <label class="form-check-label" for="sin_especificar">Sin especificar</label>
+                            <label for="sin_especificar" class="sub_descripcion">Elige si no quieres especificar un rango de precios</label>
+                        </div>
+                    </div>
+                    <div class="form-check check_container">
+                        <input class="form-check-input" type="radio" attr="precio" id="na">
+                        <div class="container_label_precio">
+                            <label class="form-check-label" for="na">No aplicable </label>
+                            <label for="na" class="sub_descripcion">Rango de precio no aplicable </label>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+               
+            
+            </div>
+
+            <!-- Seccion de campos de IA -->
+            <div id="fields_ia_" class="container_form">
+                <div class=" contacto">
+                    <div class="header contenido_generado operador">
+                        <i class="fa fa-magic"></i>
+                        <h2>Contenido IA:</h2>
+                        <p class="section_description">
+                            Campos generados por medio de <code>Inteligencia Artificial</code>.  
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col12">
+
+                            <div class="accordion open" id="accordionPanelsStayOpenExample">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                      Descripción <strong>&nbsp Google Profile</strong> 
+                                    </button>
+                                  </h2>
+                                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                    <div class="accordion-body">
+                                        <span>hola</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                      Primer post para  <strong>&nbsp Fan page - Meta</strong>
+                                    </button>
+                                  </h2>
+                                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                    <div class="accordion-body">
+                                        <span></span>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                     Descipción <strong>&nbsp Profesional &nbsp</strong> de la empresa
+                                    </button>
+                                  </h2>
+                                  <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                    <div class="accordion-body">
+                                        <span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="operador.js"></script>
+    <script src="../../main.js"></script>
+    <script type="text/javascript">
+        testOffer();
+
+    </script>
+    <script>
+        $(document).ready(function() {
+            let allSpans = $('.accordion-body span');
+            let hasContent = false;
+    
+            allSpans.each(function() {
+                if ($(this).text().trim() !== '') {
+                    hasContent = true;
+                    return false; // Exit loop if a non-empty span is found
+                }
+            });
+    
+            if (!hasContent) {
+                $('#fields_ia_').addClass('nodisplay');
+            }
+        });
+    </script>
+
+</body>
+</html>
